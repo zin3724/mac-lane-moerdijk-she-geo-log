@@ -1,0 +1,109 @@
+%uncomment for thinner margins:
+%\usepackage[top = 2.5cm, bottom = 2.5cm, left = 2.5cm, right = 2.5cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[style=alphabetic]{biblatex}
+\usepackage{graphicx,enumitem,setspace,float,fancyhdr,subfiles}
+\usepackage{amsmath,mathtools,amssymb,amsthm,cancel,mathdots,tikz-cd,xfrac,xcolor,amsfonts}
+\usepackage[all]{xy}
+\usepackage[mathscr]{euscript}
+\usepackage{hyperref}
+
+%scale tikzcd
+\tikzcdset{scale cd/.style={every label/.append style={scale=#1},
+    cells={nodes={scale=#1}}}}
+% \setlength{\parindent}{0in}
+\makeatletter
+\DeclareMathOperator{\oeq}{\mathbin{\mathpalette\make@circled=}}%get your circled symbols here!
+\DeclareMathOperator{\oneq}{\mathbin{\mathpalette\make@circled\neq}}
+\newcommand{\make@circled}[2]{%
+  \ooalign{$\m@th#1\smallbigcirc{#1}$\cr\hidewidth$\m@th#1#2$\hidewidth\cr}%
+}
+\newcommand{\smallbigcirc}[1]{%
+  \vcenter{\hbox{\scalebox{0.77778}{$\m@th#1\bigcirc$}}}%
+}
+\makeatother
+\newcommand{\bA}{\mathbb{A}}
+\newcommand{\bC}{\mathbb{C}}
+\newcommand{\bF}{\mathbb{F}}
+\newcommand{\bN}{\mathbb{N}}
+\newcommand{\bP}{\mathbb{P}}
+\newcommand{\bQ}{\mathbb{Q}}
+\newcommand{\bR}{\mathbb{R}}
+\newcommand{\bZ}{\mathbb{Z}}
+\newcommand{\lt}{\left}
+\newcommand{\rt}{\right}
+\newcommand{\rgl}{\rangle}
+\newcommand{\lgl}{\langle}
+%change the style of arrows
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lra}{\leftrightarrow}
+\newcommand{\xra}{\xrightarrow}
+\newcommand{\Ra}{\Rightarrow}
+\newcommand{\Lra}{\Leftrightarrow}
+\newcommand{\e}{\varepsilon}
+%\det, \dim, \ker, \lcm, \gcd, all trig functions, already built-in
+\DeclareMathOperator{\coker}{\operatorname{coker}}
+\DeclareMathOperator{\id}{\operatorname{id}}
+\DeclareMathOperator{\im}{\operatorname{im}}
+\DeclareMathOperator{\tr}{\operatorname{tr}}
+\DeclareMathOperator{\End}{\operatorname{End}}
+\DeclareMathOperator{\Hom}{\operatorname{Hom}}
+\DeclareMathOperator{\Ext}{\operatorname{Ext}}
+\DeclareMathOperator{\Tor}{\operatorname{Tor}}
+\DeclareMathOperator{\Span}{\operatorname{Span}}
+\newcommand{\mychi}{{\raise 2pt\hbox{$\chi$}}}
+\definecolor{red2}{RGB}{160, 50, 50}
+\definecolor{green2}{RGB}{50, 160, 50}
+\definecolor{blue2}{RGB}{50, 50, 160}
+\definecolor{magenta2}{RGB}{160, 48, 160}
+\definecolor{cyan2}{RGB}{48, 160, 160}
+\definecolor{yellow2}{RGB}{160, 160, 48}
+
+%AMS-style theorem environments:
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{preposition}[theorem]{Preposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+%solution for custom numbering in theorems and lemmata:
+\newtheorem{innercustomgeneric}{\customgenericname}
+\providecommand{\customgenericname}{}
+\newcommand{\newcustomtheorem}[2]{%
+  \newenvironment{#1}[1]
+  {%
+   \renewcommand\customgenericname{#2}%
+   \renewcommand\theinnercustomgeneric{##1}%
+   \innercustomgeneric
+  }
+  {\endinnercustomgeneric}
+}
+\newcustomtheorem{customthm}{Theorem}
+\newcustomtheorem{customlemma}{Lemma}
+\newcustomtheorem{customcor}{Corollary}
+\newcustomtheorem{customprop}{Proposition}
+%%%%%
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}{Exercise}
+
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 3. Header (and Footer)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% To make our document nice we want a header and number the pages in the footer.
+\pagestyle{fancy} % With this command we can customize the header style.
+\fancyhf{} % This makes sure we do not have other information in our header or footer.
+\lhead{\footnotesize {}}% \lhead puts text in the top left corner. \footnotesize sets our font to a smaller size.
+%\rhead works just like \lhead (you can also use \chead)
+\chead{\footnotesize {}}
+\rhead{\footnotesize {}} %<---- Fill in your lastnames.
+% Similar commands work for the footer (\lfoot, \cfoot and \rfoot).
+% We want to put our page number in the center.
+\cfoot{\footnotesize \thepage}
