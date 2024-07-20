@@ -3,6 +3,13 @@ This is almost exactly the same as the proof of Proposition 1.6.1 on pp. 46-47. 
 
 Suppose $\phi$ is a natural trasformation in $\widehat{\mathbf{C}}(R\times P,Q)$, then we define for each $B\in\obj(\mathbf C)$ the component $\phi'_B$ such that for each $u\in R(B)$, the image $\phi'_B(u)\in\widehat{\mathbf{C}/B}(P_B,Q_B)$ has its component at each $\lt(C\xra{f}B\rt)\in\obj(\mathbf C/B)$, defined by
 \[(\phi'_B(u))_f:P(C)\to Q(C):y\mapsto\phi_C(u\cdot f,y)=\phi_C(R(f)(u),y)\]
+The components at all such $f$'s indeed assemble into a natural trasformation in $\widehat{\mathbf{C}/B}(P_B,Q_B)$ because for each morphism $C\xra{g}D$ in $\mathbf{C}/B$ and $x\in P(D)$, the square
+\[\xymatrix{
+    P(C) \ar@{->}[r]^{{\phi_C(x\cdot g,-)}} & Q(C) \\
+    P(D) \ar@{->}[u]^{P(g)} \ar@{->}[r]^{{\phi_D(x,-)}} & Q(D) \ar@{->}[u]^{Q(g)}
+    }\]
+commutes by the naturality of $\phi$.
+
 Now, we define the evaluation map $ev$ from $\widehat{\mathbf{C}/(-)}(P_{(-)},Q_{(-)})\times P$ to $Q$, by defining for each $B\in\obj(\mathbf{C})$, its component as
 \[(ev)_B:\widehat{\mathbf{C}/B}(P_B,Q_B)\times P(B)\to Q(B):(\alpha,w)\mapsto\alpha_{1_B}(w)\]
 so as an example, for $(u,w)\in R(B)\times P(B)$, we have
