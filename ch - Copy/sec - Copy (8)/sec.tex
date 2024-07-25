@@ -32,7 +32,13 @@ commutes is also a morphism such that
     }\]
 commutes, it follows that each morphism in $(\mathbf{C}/A)^{op}$ is identically a morphism in $(\mathbf{C}/B)^{op}$. Now, we have a functor $(\mathbf{C}/f)^{op}:(\mathbf{C}/A)^{op}\to(\mathbf{C}/B)^{op}$. Clearly, $Q^P(f):Q^P(B)\to Q^P(A)$ is the function $\beta\mapsto\beta((\mathbf{C}/f)^{op})$, which takes $\beta$ and precomposes it horizontally with the functor $(\mathbf{C}/f)^{op}$ ("pre-whiskering" in Emily Riehl's terminology?). We can now conclude from the assumption $\beta\in Q^P(B)$, that $\alpha$ is indeed a natural transformation in $Q^P(A)$.
 
-To see that $Q^P$ is a functor in $\mathbf{Sets}^{\mathbf{C}^{op}}$, note that for all $B\in\obj(\mathbf{C})$, $(\mathbf{C}/\id_B)^{op}$ is the identity functor on $(\mathbf{C}/B)^{op}$, so $Q^P(\id_B)=\id_{Q^P(B)}$. Now, suppose that $(A\xra{f}B)\in\mathbf{C}$, then
+To see that $Q^P$ is a functor in $\mathbf{Sets}^{\mathbf{C}^{op}}$, note that for all $B\in\obj(\mathbf{C})$, $(\mathbf{C}/\id_B)^{op}$ is the identity functor on $(\mathbf{C}/B)^{op}$, so $Q^P(\id_B)=\id_{Q^P(B)}$. Now, suppose that $(A\xra{f}B),(B\xra{g}C)\in\mathbf{C}$, then $(\mathbf{C}/(g\circ f))^{op}=(\mathbf{C}/f)^{op}(\mathbf{C}/g)^{op}$, so $Q^P((g\circ f)^{op})=Q^P(f^{op})\circ Q^P(g^{op})$, all because of how precomposing functors work.
+
+To see that $\phi':R\to Q^P$ is natural, suppose $u\in R(B)$, and $(A\xra{f}B)\in\mathbf{C}$. Then $\phi'_A\circ R(f)(u)$ is the natural transformation such that its component at $X\xra{x}A$ is
+\[\phi_X(R(x)(R(f)(u)),-)=\phi_X(R(f\circ x)(u),-)\]
+on the other hand, $Q^P(f)(\phi'_B(u))=\phi'_B(u)((\mathbf{C}/f)^{op})$ is the natural transformation such that its component at $x$ is
+\[(\phi'_B(u))_{f\circ x}=\phi_X(R(f\circ x)(u),-)\]
+so it follows that $Q^P(f)\circ\phi'_B=\phi'_A\circ Q^P(f)$ as required.
 
 Now, we define the evaluation map $ev$ from $\widehat{\mathbf{C}/(-)}(P_{(-)},Q_{(-)})\times P$ to $Q$, by defining for each $B\in\obj(\mathbf{C})$, its component as
 \[(ev)_B:\widehat{\mathbf{C}/B}(P_B,Q_B)\times P(B)\to Q(B):(\alpha,w)\mapsto\alpha_{1_B}(w)\]
