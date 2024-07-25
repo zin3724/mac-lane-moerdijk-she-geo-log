@@ -1,5 +1,5 @@
 \section{zin3724}
-\emph{dedicated to sharp2229, previously known as Dir, Darkrifts}
+\emph{dedicated to sharp2229, previously known as Dir (see the cursed music theory lecture "Abstracted Systems of Music", on YouTube), Darkrifts}
 
 This is almost exactly the same as the proof of Proposition 1.6.1 on pp. 46-47. Note that $D_B$ is a forgetful-like functor from $\mathbf C/B$ to $\mathbf C$ that takes each object in $\mathbf C/B$ to its domain.
 
@@ -13,7 +13,7 @@ on the other hand, by the naturality of $\phi$ and the functoriality of $R$,
 \[=\phi_G(R(k)\circ R(h)(u),P(k)(y))=\phi_G(R(h\circ k)(u),P(k)(y))\]
 \[=\phi_G(R(g)(u),P(k)(y))=(\phi'_G(u))_g\circ P(k)(y)\]
 
-For brevity, we now write $Q^P$ to be $\widehat{\mathbf{C}/(-)}(P_{(-)},Q_{(-)}):\mathbf{C}^{op}\to\mathbf{Sets}$. $Q^P$ maps each morphism $(B\xra{f^{op}}A)$ in $\mathbf{C}^{op}$ by mapping $\beta\in Q^P(B)$ to $\alpha\in Q^P(A)$ componentwise via
+For brevity, we now write $Q^P$ to be $\widehat{\mathbf{C}/(-)}(P_{(-)},Q_{(-)}):\mathbf{C}^{op}\to\mathbf{Sets}$, regardless of whether it is such an exponential object, or not. $Q^P$ maps each morphism $(B\xra{f^{op}}A)$ in $\mathbf{C}^{op}$ by mapping $\beta\in Q^P(B)$ to $\alpha\in Q^P(A)$ componentwise via
 \[\alpha_{x^{op}}\coloneqq\beta_{(f\circ x)^{op}}\]
 for all $(A\xra{x^{op}}X)\in(\mathbf{C}/A)^{op}$.
 
@@ -41,8 +41,17 @@ on the other hand, $Q^P(f)(\phi'_B(u))=\phi'_B(u)((\mathbf{C}/f)^{op})$ is the n
 so it follows that $Q^P(f)\circ\phi'_B=\phi'_A\circ Q^P(f)$ as required.
 
 Now, we define the evaluation map $ev$ from $\widehat{\mathbf{C}/(-)}(P_{(-)},Q_{(-)})\times P$ to $Q$, by defining for each $B\in\obj(\mathbf{C})$, its component as
-\[(ev)_B:\widehat{\mathbf{C}/B}(P_B,Q_B)\times P(B)\to Q(B):(\alpha,w)\mapsto\alpha_{1_B}(w)\]
+\[(ev)_B:\widehat{\mathbf{C}/B}(P_B,Q_B)\times P(B)\to Q(B):(\beta,w)\mapsto\beta_{1_B}(w)\]
 so as an example, for $(u,w)\in R(B)\times P(B)$, we have
 \[(ev)_B(\phi'_B(u),w)=(\phi'_B(u))_{1_B}(w)=\phi_B(u\cdot1_B,w)=\phi_B(R(1_B)(u),w)\]
 \[=\phi_B(1_{R(B)}(u),w)=\phi_B(u,w)\]
-hence each $\phi\in\widehat{\mathbf{C}}(R\times P,Q)$ factors through $ev$. Now, it follows from the way we costructed each $\phi'_B$ and the constraint that $\phi'$ has to be a natural trasformation from $R$ to $\widehat{\mathbf{C}/(-)}(P_{(-)},Q_{(-)})$, that $\phi$ factors uniquely through $ev$, so $\widehat{\mathbf{C}/(-)}(P_{(-)},Q_{(-)})$ can be regarded as the exponential $Q^P$ in $\widehat{\mathbf{C}}$.
+hence each component of $\phi\in\widehat{\mathbf{C}}(R\times P,Q)$ factors through the corresponding component of $ev$.
+
+To see that $ev$ is natural, for any $(A\xra{f}B)\in\mathbf{C}$ and $(\beta,w)\in Q^P(B)\times P(B)$, note that
+\[ev_A\circ (Q^P(f)\times P(f))(\beta,w)=ev_A(\beta((\mathbf{C}/f)^{op}),P(f)(w))\]
+\[=(\beta((\mathbf{C}/f)^{op}))_{1_A}(P(f)(w))=\beta_{f^{op}}(P(f)(w))\in Q(A)\]
+and on the other hand,
+\[Q(f)\circ ev_B(\beta,w)=Q(f)\beta_{1_B}(w)\]
+moreover, it follows from the naturality of $\beta$ (as a natural transformation in $\widehat{\mathbf{C}/B}(P_B,Q_B)$) that $Q(f)\beta_{1_B}=\beta_{f^{op}}P(f)$, so we indeed have $ev_A\circ (Q^P(f)\times P(f))=Q(f)\circ ev_B$.
+
+Now, it follows from the way we costructed each $\phi'_B$ and the constraint that $\phi'$ has to be a natural trasformation from $R$ to $\widehat{\mathbf{C}/(-)}(P_{(-)},Q_{(-)})$, that $\phi$ factors uniquely through $ev$, so $Q^P(-)=\widehat{\mathbf{C}/(-)}(P_{(-)},Q_{(-)})$ is indeed such an exponential in $\widehat{\mathbf{C}}$.
