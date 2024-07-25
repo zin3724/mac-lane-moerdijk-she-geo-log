@@ -1,4 +1,6 @@
 \section{zin3724}
+\emph{dedicated to sharp2229, previously known as Dir, Darkrifts}
+
 This is almost exactly the same as the proof of Proposition 1.6.1 on pp. 46-47. Note that $D_B$ is a forgetful-like functor from $\mathbf C/B$ to $\mathbf C$ that takes each object in $\mathbf C/B$ to its domain.
 
 Suppose $\phi$ is a natural trasformation in $\widehat{\mathbf{C}}(R\times P,Q)$, then we define for each $B\in\obj(\mathbf C)$ the component $\phi'_B$ such that for each $u\in R(B)$, the image $\phi'_B(u)\in\widehat{\mathbf{C}/B}(P_B,Q_B)$ has its component at each $\lt(C\xra{c}B\rt)\in\obj(\mathbf C/B)$ defined as
@@ -11,7 +13,26 @@ on the other hand, by the naturality of $\phi$ and the functoriality of $R$,
 \[=\phi_G(R(k)\circ R(h)(u),P(k)(y))=\phi_G(R(h\circ k)(u),P(k)(y))\]
 \[=\phi_G(R(g)(u),P(k)(y))=(\phi'_G(u))_g\circ P(k)(y)\]
 
-For brevity, we now write $Q^P$ to be the functor $\widehat{\mathbf{C}/(-)}(P_{(-)},Q_{(-)})\times P$. To see that $Q^P$ is indeed a functor in $\mathbf{Sets}^{\mathbf{C}^{op}}$, note that if $(A\xra{f}B)\in\mathbf{C}$, then
+For brevity, we now write $Q^P$ to be $\widehat{\mathbf{C}/(-)}(P_{(-)},Q_{(-)}):\mathbf{C}^{op}\to\mathbf{Sets}$. $Q^P$ maps each morphism $(B\xra{f^{op}}A)$ in $\mathbf{C}^{op}$ by mapping $\beta\in Q^P(B)$ to $\alpha\in Q^P(A)$ componentwise via
+\[\alpha_{x^{op}}\coloneqq\beta_{(f\circ x)^{op}}\]
+for all $(A\xra{x^{op}}X)\in(\mathbf{C}/A)^{op}$.
+
+To see where that came from, since each $(X\xra{x}A)\in\obj(\mathbf{C}/A)$ can be mapped to $X\xra{f\circ x}B\in\obj(\mathbf{C}/B)$ such that they have the same underlying domain in $\mathbf{C}$,
+% it follows that $D_A^{op}(x^{op})=D_B^{op}((f\circ x)^{op})$,
+and since each morphism $Y\xra{g^{op}}X$ such that 
+\[\xymatrix{
+    X & Y \ar@{->}[l]^{g^{op}} \\
+    A \ar@{->}[ru]_{y^{op}} \ar@{->}[u]^{x^{op}} & 
+    }\]
+commutes is also a morphism such that
+\[\xymatrix{
+    X & Y \ar@{->}[l]^{g^{op}} \\
+    A \ar@{->}[ru]_{y^{op}} \ar@{->}[u]^{x^{op}} &  \\
+    B \ar@{->}[u]^{f^{op}} & 
+    }\]
+commutes, it follows that each morphism in $(\mathbf{C}/A)^{op}$ is identically a morphism in $(\mathbf{C}/B)^{op}$. Now, we have a functor $(\mathbf{C}/f)^{op}:(\mathbf{C}/A)^{op}\to(\mathbf{C}/B)^{op}$. Clearly, $Q^P(f):Q^P(B)\to Q^P(A)$ is the function $\beta\mapsto\beta((\mathbf{C}/f)^{op})$, which takes $\beta$ and precomposes it horizontally with the functor $(\mathbf{C}/f)^{op}$ ("pre-whiskering" in Emily Riehl's terminology?). We can now conclude from the assumption $\beta\in Q^P(B)$, that $\alpha$ is indeed a natural transformation in $Q^P(A)$.
+
+To see that $Q^P$ is a functor in $\mathbf{Sets}^{\mathbf{C}^{op}}$, note that for all $B\in\obj(\mathbf{C})$, $(\mathbf{C}/\id_B)^{op}$ is the identity functor on $(\mathbf{C}/B)^{op}$, so $Q^P(\id_B)=\id_{Q^P(B)}$. Now, suppose that $(A\xra{f}B)\in\mathbf{C}$, then
 
 Now, we define the evaluation map $ev$ from $\widehat{\mathbf{C}/(-)}(P_{(-)},Q_{(-)})\times P$ to $Q$, by defining for each $B\in\obj(\mathbf{C})$, its component as
 \[(ev)_B:\widehat{\mathbf{C}/B}(P_B,Q_B)\times P(B)\to Q(B):(\alpha,w)\mapsto\alpha_{1_B}(w)\]
